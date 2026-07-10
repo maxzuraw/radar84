@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkprdvm31w38h"]
+
+[ext_resource type="Texture2D" uid="uid://bvikh1gdp81j1" path="res://grafiki/terminal/terminal-background.png" id="1_ghf6h"]
+
+[node name="TerminalBackground" type="Sprite2D" unique_id=1113399584]
+texture = ExtResource("1_ghf6h")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dygbw4r2lda4" path="res://przyciski/window.tscn" id="2_0ntff"]
 [ext_resource type="PackedScene" uid="uid://bbo2t6udxltnn" path="res://przyciski/terminal_button.tscn" id="3_qcuxu"]
 [ext_resource type="PackedScene" uid="uid://3a51xqqulffc" path="res://przyciski/map_button.tscn" id="4_viudq"]
+[ext_resource type="PackedScene" uid="uid://uh5rkn27atcu" path="res://terminal/terminal.tscn" id="6_igvu5"]
 
 [node name="MainScene" type="Node2D" unique_id=2073381714]
 position = Vector2(2, 192)
@@ -44,3 +45,6 @@ offset_top = 203.0
 offset_right = 67.0
 offset_bottom = 271.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Terminal" parent="." unique_id=1136889335 instance=ExtResource("6_igvu5")]
+position = Vector2(64, -195)

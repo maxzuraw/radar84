@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://uh5rkn27atcu"]
+
+[ext_resource type="PackedScene" uid="uid://dkprdvm31w38h" path="res://terminal/terminal_background.tscn" id="1_l3hco"]
+
+[node name="Terminal" type="Node2D" unique_id=1136889335]
+
+[node name="TerminalBackground" parent="." unique_id=1113399584 instance=ExtResource("1_l3hco")]
+position = Vector2(401, 326)
