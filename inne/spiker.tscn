@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1ujk1cjc4sav"]
+
+[ext_resource type="Texture2D" uid="uid://dnpk40qu72gsg" path="res://grafiki/inne/spiker.png" id="1_40o4f"]
+
+[node name="Spiker" type="Sprite2D" unique_id=2142546355]
+texture = ExtResource("1_40o4f")

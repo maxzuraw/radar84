@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://3a51xqqulffc"]
+
+[ext_resource type="Texture2D" uid="uid://btw4sbw44wxve" path="res://grafiki/przyciski/map-button.png" id="1_is7rw"]
+
+[node name="MapButton" type="Button" unique_id=495647002]
+tooltip_text = "Map"
+icon = ExtResource("1_is7rw")

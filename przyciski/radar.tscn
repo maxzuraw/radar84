@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://da0xv2ex863fp"]
+
+[ext_resource type="Texture2D" uid="uid://dcjbanlpod82p" path="res://grafiki/przyciski/radar-button.png" id="1_otnn5"]
+
+[node name="RadarButton" type="Button" unique_id=381514007]
+tooltip_text = "Radar"
+icon = ExtResource("1_otnn5")

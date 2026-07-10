@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b045nodhij4lp"]
+
+[ext_resource type="PackedScene" uid="uid://b1ujk1cjc4sav" path="res://inne/spiker.tscn" id="1_u0qlj"]
+[ext_resource type="PackedScene" uid="uid://da0xv2ex863fp" path="res://przyciski/radar.tscn" id="1_ur1xi"]
+[ext_resource type="PackedScene" uid="uid://dygbw4r2lda4" path="res://przyciski/window.tscn" id="2_0ntff"]
+[ext_resource type="PackedScene" uid="uid://bbo2t6udxltnn" path="res://przyciski/terminal_button.tscn" id="3_qcuxu"]
+[ext_resource type="PackedScene" uid="uid://3a51xqqulffc" path="res://przyciski/map_button.tscn" id="4_viudq"]
+
+[node name="MainScene" type="Node2D" unique_id=2073381714]
+position = Vector2(2, 192)
+
+[node name="Spiker" parent="." unique_id=2142546355 instance=ExtResource("1_u0qlj")]
+position = Vector2(32, -95.5)
+scale = Vector2(1.0666667, 1.5416666)
+
+[node name="Spiker2" parent="." unique_id=974729829 instance=ExtResource("1_u0qlj")]
+position = Vector2(32.5, 362)
+scale = Vector2(1.0833333, 1.5166667)
+
+[node name="RadarButton" parent="." unique_id=381514007 instance=ExtResource("1_ur1xi")]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 67.0
+offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowButton" parent="." unique_id=1488566614 instance=ExtResource("2_0ntff")]
+offset_left = -1.0
+offset_top = 67.0
+offset_right = 67.0
+offset_bottom = 135.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TerminalButton" parent="." unique_id=1072181524 instance=ExtResource("3_qcuxu")]
+offset_left = -1.0
+offset_top = 135.0
+offset_right = 67.0
+offset_bottom = 203.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapButton" parent="." unique_id=495647002 instance=ExtResource("4_viudq")]
+offset_left = -1.0
+offset_top = 203.0
+offset_right = 67.0
+offset_bottom = 271.0
+metadata/_edit_use_anchors_ = true

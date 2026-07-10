@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbo2t6udxltnn"]
+
+[ext_resource type="Texture2D" uid="uid://dcqphl7yc63l4" path="res://grafiki/przyciski/terminal-button.png" id="1_5qynj"]
+
+[node name="TerminalButton" type="Button" unique_id=1072181524]
+tooltip_text = "Terminal"
+icon = ExtResource("1_5qynj")

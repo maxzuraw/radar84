@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dygbw4r2lda4"]
+
+[ext_resource type="Texture2D" uid="uid://34nmxqi2ekoe" path="res://grafiki/przyciski/window-button.png" id="1_v366b"]
+
+[node name="WindowButton" type="Button" unique_id=1488566614]
+tooltip_text = "Window"
+icon = ExtResource("1_v366b")
