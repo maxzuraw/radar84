@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_sector := "A-01"
+var current_sector := "I-9"
 var access_level := 1
 var radar_online := true
 
@@ -25,7 +25,7 @@ func execute(command: String) -> String:
 		"sector":
 			return _change_sector(arguments)
 
-		"clear":
+		"clear","cls":
 			clear_screen.emit()
 			return ""
 		_:
@@ -45,6 +45,12 @@ func escape_bbcode(text: String) -> String:
 	
 func unknown_command(errorMessage: String) -> String:
 	return "[color=#ff7777]ERROR: Unknown command %s[/color]\n" % escape_bbcode(errorMessage)
+
+func bad_sector_format(errorMessage: String) -> String:
+	return "[color=#ff7777]Bad sector format: was entered %s, should be in format <character>-<number>[/color]\n" % escape_bbcode(errorMessage)
+
+func bad_sector_name(errorMessage: String) -> String:
+	return "[color=#ff7777]Bad sector name: was entered %s, check your map for sectors[/color]\n" % escape_bbcode(errorMessage)
 
 #func execute_scan(arguments: Array[String]) -> void:
 	#if arguments.is_empty():
@@ -90,6 +96,30 @@ func _change_sector(arguments: Array[String]) -> String:
 	if arguments.is_empty():
 		return "CURRENT SECTOR: " + current_sector + "\n"
 
-	current_sector = arguments[0].to_upper()
+	var upperCase = arguments[0].to_upper()
+	
+	# walidacja wpisanego argumentu
+	if not upperCase.contains("-"):
+		return bad_sector_format(upperCase)
+		
+	var podzielone = upperCase.split("-")
+	if podzielone.size() > 2:
+		return bad_sector_format(upperCase)
+	
+	var allowed_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S']
+	
+	if podzielone[0] not in allowed_letters:
+		return bad_sector_name(upperCase)
+	
+	var numerSektora = 0
+	if podzielone[1].is_valid_int():
+		numerSektora = podzielone[1].to_int()
+	else:
+		return bad_sector_name(upperCase)
+	
+	if numerSektora > 18 or numerSektora < 1:
+		return bad_sector_name(upperCase)
+		
+	current_sector = upperCase
 	return "SECTOR CHANGED TO: " + current_sector + "\n"
 	

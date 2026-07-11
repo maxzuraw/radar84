@@ -22,7 +22,8 @@ func _on_command_submitted(command: String) -> void:
 	history_index = command_history.size()
 	command_input.clear()
 	print_response(system.execute(cleaned_command))
-	
+	command_input.grab_focus()
+	_symuluj_wcisniecie_enter()
 
 func scroll_to_bottom() -> void:
 	await get_tree().process_frame
@@ -56,6 +57,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 	key_sound.play()
 
-
 func _on_terminal_system_clear_screen() -> void:
 	terminal_output.clear()
+
+func _symuluj_wcisniecie_enter():
+	var enter_event := InputEventKey.new()
+	enter_event.keycode = KEY_ENTER
+	enter_event.pressed = true
+	Input.parse_input_event(enter_event)
