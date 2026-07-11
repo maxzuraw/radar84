@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://f5qxf5pahuvp"]
 
+[ext_resource type="Script" uid="uid://cifslieovd62v" path="res://mapa/mapa.gd" id="1_enwsp"]
 [ext_resource type="Texture2D" uid="uid://b14a2hp3bqdp7" path="res://grafiki/mapa/mapa-background-gra.png" id="1_u657f"]
+[ext_resource type="PackedScene" uid="uid://boyhtt232l2h7" path="res://radarmap/radar_map.tscn" id="3_4f3sg"]
 
 [node name="Mapa" type="Control" unique_id=1768527447]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_enwsp")
 
 [node name="mapaBackground" type="Sprite2D" parent="." unique_id=865774142]
 position = Vector2(401, 324)
 texture = ExtResource("1_u657f")
+
+[node name="RadarMap" parent="." unique_id=915650970 instance=ExtResource("3_4f3sg")]
+point_speed = 3.0
+show_debug_path = true
+show_debug_point = true

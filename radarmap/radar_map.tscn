@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://boyhtt232l2h7"]
+
+[ext_resource type="Script" uid="uid://bqnsn7j2rwb41" path="res://radarmap/RadarMap.gd" id="1_bar6d"]
+[ext_resource type="Texture2D" uid="uid://b14a2hp3bqdp7" path="res://grafiki/mapa/mapa-background-gra.png" id="1_km0ps"]
+
+[sub_resource type="Curve2D" id="Curve2D_km0ps"]
+
+[node name="RadarMap" type="Node2D" unique_id=915650970]
+script = ExtResource("1_bar6d")
+
+[node name="MapSprite" type="Sprite2D" parent="." unique_id=1248643944]
+texture = ExtResource("1_km0ps")
+centered = false
+
+[node name="SectorMarkers" type="Node2D" parent="." unique_id=1183449367]
+
+[node name="HiddenPath" type="Path2D" parent="." unique_id=1850577528]
+curve = SubResource("Curve2D_km0ps")
+
+[node name="HiddenPoint" type="PathFollow2D" parent="HiddenPath" unique_id=1025862047]
+
+[node name="DebugPoint" type="Polygon2D" parent="HiddenPath/HiddenPoint" unique_id=1389146115]
+color = Color(0.007855805, 0.5944626, 0.61572886, 1)
+texture_offset = Vector2(2, 2)
+texture_scale = Vector2(2, 2)
+
+[node name="DebugPath" type="Line2D" parent="." unique_id=1056297359]
