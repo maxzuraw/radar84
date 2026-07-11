@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b045nodhij4lp"]
 
-[ext_resource type="Script" uid="uid://kbvn2y7x7ry5" path="res://sceny/MainScene.gd" id="1_1jwxs"]
 [ext_resource type="PackedScene" uid="uid://b1ujk1cjc4sav" path="res://inne/spiker.tscn" id="1_u0qlj"]
 [ext_resource type="PackedScene" uid="uid://da0xv2ex863fp" path="res://przyciski/radar.tscn" id="1_ur1xi"]
 [ext_resource type="PackedScene" uid="uid://dygbw4r2lda4" path="res://przyciski/window.tscn" id="2_0ntff"]
@@ -14,7 +13,6 @@
 
 [node name="MainScene" type="Node2D" unique_id=2073381714]
 position = Vector2(2, 192)
-script = ExtResource("1_1jwxs")
 
 [node name="Spiker" parent="." unique_id=2142546355 instance=ExtResource("1_u0qlj")]
 position = Vector2(32, -95.5)
@@ -72,8 +70,8 @@ visible = false
 layout_mode = 0
 offset_left = 66.0
 offset_top = -193.0
-offset_right = 890.0
-offset_bottom = 455.0
+offset_right = 66.0
+offset_bottom = -193.0
 
 [node name="Window" parent="SceneControl" unique_id=1080394826 instance=ExtResource("9_senfy")]
 visible = false

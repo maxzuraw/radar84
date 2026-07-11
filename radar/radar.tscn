@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://dho2a2ulknwb4"]
 
 [ext_resource type="Texture2D" uid="uid://bo246ejamfj7y" path="res://grafiki/radar/radar-background.png" id="1_0ebdg"]
+[ext_resource type="Script" uid="uid://bu0bdbp6cajga" path="res://radar/Radar.gd" id="1_l1c4d"]
 
 [node name="Radar" type="Control" unique_id=1563457660]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="background" type="Sprite2D" parent="." unique_id=1475472986]
-position = Vector2(400, 324)
+[node name="background" type="TextureRect" parent="." unique_id=634003514]
+z_index = -1
+layout_mode = 0
+mouse_filter = 2
 texture = ExtResource("1_0ebdg")
+
+[node name="RadarOverlay" type="Control" parent="." unique_id=1138081613]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_l1c4d")
