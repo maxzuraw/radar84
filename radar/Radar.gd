@@ -26,6 +26,11 @@ extends Control
 
 @export var trail_color := Color(0.45, 1.0, 0.45, 1.0)
 
+@export var blip_label_font: Font
+@export var blip_label_font_size: int = 14
+@export var blip_label_offset := Vector2(10.0, -8.0)
+@export var blip_label_color := Color(0.75, 1.0, 0.75, 1.0)
+
 var sweep_trail: Array = []
 var trail_sample_accumulator: float = 0.0
 
@@ -38,6 +43,8 @@ var has_target := false
 var detected_radar_position: Vector2
 var has_detected_blip := false
 var blip_age: float = 0.0
+var detected_sector: String = ""
+var target_sector: String = ""
 
 
 func _ready() -> void:
@@ -133,17 +140,62 @@ func _draw_blip() -> void:
 	if alpha <= 0.0:
 		return
 
-	var color := blip_color
-	color.a *= alpha
+	# Punkt.
+	var current_blip_color := blip_color
+	current_blip_color.a *= alpha
 
 	draw_circle(
 		detected_radar_position,
 		blip_radius,
-		color
+		current_blip_color
+	)
+
+	# Poświata punktu.
+	var glow_color := current_blip_color
+	glow_color.a *= 0.25
+
+	draw_circle(
+		detected_radar_position,
+		blip_radius * 2.0,
+		glow_color
+	)
+
+	# Etykieta sektora, np. [A-10].
+	_draw_blip_label(alpha)
+
+
+func _draw_blip_label(alpha: float) -> void:
+	if detected_sector.is_empty():
+		return
+
+	var font := blip_label_font
+
+	if font == null:
+		font = ThemeDB.fallback_font
+
+	var text := "[" + detected_sector + "]"
+
+	var text_color := blip_label_color
+	text_color.a *= alpha
+
+	var text_position := (
+		detected_radar_position
+		+ blip_label_offset
+	)
+
+	draw_string(
+		font,
+		text_position,
+		text,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1.0,
+		blip_label_font_size,
+		text_color
 	)
 
 
 func set_target_sector(sector_name: String) -> void:
+	target_sector = sector_name
 	var parsed_position = _sector_to_radar_position(
 		sector_name
 	)
@@ -277,8 +329,15 @@ func _angle_was_crossed(
 
 func _register_hit() -> void:
 	detected_radar_position = target_radar_position
+	detected_sector = target_sector
+
 	has_detected_blip = true
 	blip_age = 0.0
+
+	print(
+		"Radar: wykryto obiekt w sektorze ",
+		detected_sector
+	)
 
 
 func _get_ellipse_edge_distance(
