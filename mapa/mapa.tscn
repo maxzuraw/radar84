@@ -17,3 +17,6 @@ texture = ExtResource("1_u657f")
 point_speed = 3.0
 show_debug_path = true
 show_debug_point = true
+
+[connection signal="position_changed" from="RadarMap" to="." method="_on_radar_map_position_changed"]
+[connection signal="sector_changed" from="RadarMap" to="." method="_on_radar_map_sector_changed"]
