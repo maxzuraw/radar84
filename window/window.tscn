@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckxhih1pmjdny"]
+
+[ext_resource type="Texture2D" uid="uid://rknjo3vjojg" path="res://grafiki/window/window-background.png" id="1_vrd5k"]
+
+[node name="Window" type="Control" unique_id=1080394826]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=803657255]
+position = Vector2(400, 324)
+texture = ExtResource("1_vrd5k")

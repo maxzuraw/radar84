@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dwiuka2xsjfki" path="res://sceny/scene_control.gd" id="6_gl3sd"]
 [ext_resource type="PackedScene" uid="uid://uh5rkn27atcu" path="res://terminal/terminal.tscn" id="6_igvu5"]
 [ext_resource type="PackedScene" uid="uid://dho2a2ulknwb4" path="res://radar/radar.tscn" id="7_6rj5s"]
+[ext_resource type="PackedScene" uid="uid://ckxhih1pmjdny" path="res://window/window.tscn" id="9_senfy"]
+[ext_resource type="PackedScene" uid="uid://f5qxf5pahuvp" path="res://mapa/mapa.tscn" id="10_1wudd"]
 
 [node name="MainScene" type="Node2D" unique_id=2073381714]
 position = Vector2(2, 192)
@@ -71,5 +73,23 @@ offset_top = -193.0
 offset_right = 66.0
 offset_bottom = -193.0
 
+[node name="Window" parent="SceneControl" unique_id=1080394826 instance=ExtResource("9_senfy")]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = -193.0
+offset_right = 66.0
+offset_bottom = -193.0
+
+[node name="Mapa" parent="SceneControl" unique_id=1768527447 instance=ExtResource("10_1wudd")]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_top = -194.0
+offset_right = 65.0
+offset_bottom = -194.0
+
 [connection signal="pressed" from="RadarButton" to="SceneControl" method="_on_radar_button_pressed"]
+[connection signal="pressed" from="WindowButton" to="SceneControl" method="_on_window_button_pressed"]
 [connection signal="pressed" from="TerminalButton" to="SceneControl" method="_on_terminal_button_pressed"]
+[connection signal="pressed" from="MapButton" to="SceneControl" method="_on_map_button_pressed"]
