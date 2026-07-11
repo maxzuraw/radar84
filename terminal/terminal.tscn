@@ -35,7 +35,7 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.20836788, 0.46970105, 0.32317019, 1)
 theme_override_fonts/normal_font = ExtResource("2_cgvah")
 bbcode_enabled = true
-fit_content = true
+scroll_following = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1940216904]
 layout_mode = 2
