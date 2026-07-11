@@ -17,7 +17,7 @@ func execute(command: String) -> String:
 
 	match command_name:
 		"help":
-			return _help()
+			return _help(arguments)
 
 		"status":
 			return _status()
@@ -51,6 +51,9 @@ func bad_sector_format(errorMessage: String) -> String:
 
 func bad_sector_name(errorMessage: String) -> String:
 	return "[color=#ff7777]Bad sector name: was entered %s, check your map for sectors[/color]\n" % escape_bbcode(errorMessage)
+	
+func command_without_arguments(errorMessage: String) -> String:
+	return "[color=#ff7777]ERROR: Command %s does not have any arguments[/color]\n" % escape_bbcode(errorMessage)
 
 #func execute_scan(arguments: Array[String]) -> void:
 	#if arguments.is_empty():
@@ -73,15 +76,27 @@ func bad_sector_name(errorMessage: String) -> String:
 		#_:
 			#print_response("Sektor %s jest poza zasięgiem radaru." % sector)
 
-func _help() -> String:
-	return "AVAILABLE COMMANDS:
-HELP\t\t\t\t\t- list of commands
-STATUS\t\t\t\t- system status
-SCAN <SECTOR>\t- sector scanning
-ECHO <TEXT>\t\t- print text
-CLEAR\t\t\t\t- clear terminal
-PING\t\t\t\t\t- communication test
-"
+func _help(arguments: Array[String]) -> String:
+	if arguments.is_empty():
+		return "AVAILABLE COMMANDS:
+	HELP\t\t\t\t\t\t- list of commands
+	HELP <COMMAND>\t\t- list of possible arguments for command if available
+	STATUS\t\t\t\t\t- system status
+	SECTOR\t\t\t\t\t- current sector status (*)
+	SCAN\t\t\t\t\t\t- scan current sector
+	CLEAR\t\t\t\t\t- clear terminal
+	* - contains additional arguments
+	"
+	
+	var argument := arguments[0].to_lower()
+	match argument:
+		"help":
+			return "CHOOSE WISELY COMMAND TO HELP FOR\n"
+		"sector":
+			return "SECTOR\t\t\t\t\t\t\t- sector status\nSECTOR <SECTOR_NAME>\t- changes to sector with SECTOR_NAME. SECTOR_NAME has format '<LETTER>-<NUMBER>'. Check map for names of sector.\n"
+
+		_:
+			return command_without_arguments(argument)
 
 
 func _status() -> String:
