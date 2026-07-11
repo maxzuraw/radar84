@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dho2a2ulknwb4"]
+
+[ext_resource type="Texture2D" uid="uid://bo246ejamfj7y" path="res://grafiki/radar/radar-background.png" id="1_0ebdg"]
+
+[node name="Radar" type="Control" unique_id=1563457660]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="Sprite2D" parent="." unique_id=1475472986]
+position = Vector2(400, 324)
+texture = ExtResource("1_0ebdg")
