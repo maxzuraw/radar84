@@ -83,13 +83,13 @@ func _status() -> String:
 		"ONLINE" if radar_online else "OFFLINE",
 		current_sector,
 		access_level
-	]
+	] + "\n"
 
 
 func _change_sector(arguments: Array[String]) -> String:
 	if arguments.is_empty():
-		return "CURRENT SECTOR: " + current_sector
+		return "CURRENT SECTOR: " + current_sector + "\n"
 
 	current_sector = arguments[0].to_upper()
-	return "SECTOR CHANGED TO: " + current_sector
+	return "SECTOR CHANGED TO: " + current_sector + "\n"
 	
