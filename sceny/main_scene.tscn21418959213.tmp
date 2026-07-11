@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://b045nodhij4lp"]
+
+[ext_resource type="PackedScene" uid="uid://b1ujk1cjc4sav" path="res://inne/spiker.tscn" id="1_u0qlj"]
+[ext_resource type="PackedScene" uid="uid://da0xv2ex863fp" path="res://przyciski/radar.tscn" id="1_ur1xi"]
+[ext_resource type="PackedScene" uid="uid://dygbw4r2lda4" path="res://przyciski/window.tscn" id="2_0ntff"]
+[ext_resource type="PackedScene" uid="uid://bbo2t6udxltnn" path="res://przyciski/terminal_button.tscn" id="3_qcuxu"]
+[ext_resource type="PackedScene" uid="uid://3a51xqqulffc" path="res://przyciski/map_button.tscn" id="4_viudq"]
+[ext_resource type="Script" uid="uid://dwiuka2xsjfki" path="res://sceny/scene_control.gd" id="6_gl3sd"]
+[ext_resource type="PackedScene" uid="uid://uh5rkn27atcu" path="res://terminal/terminal.tscn" id="6_igvu5"]
+[ext_resource type="PackedScene" uid="uid://dho2a2ulknwb4" path="res://radar/radar.tscn" id="7_6rj5s"]
+[ext_resource type="PackedScene" uid="uid://ckxhih1pmjdny" path="res://window/window.tscn" id="9_senfy"]
+[ext_resource type="PackedScene" uid="uid://f5qxf5pahuvp" path="res://mapa/mapa.tscn" id="10_1wudd"]
+
+[node name="MainScene" type="Node2D" unique_id=2073381714]
+position = Vector2(2, 192)
+
+[node name="Spiker" parent="." unique_id=2142546355 instance=ExtResource("1_u0qlj")]
+position = Vector2(32, -95.5)
+scale = Vector2(1.0666667, 1.5416666)
+
+[node name="Spiker2" parent="." unique_id=974729829 instance=ExtResource("1_u0qlj")]
+position = Vector2(32.5, 362)
+scale = Vector2(1.0833333, 1.5166667)
+
+[node name="RadarButton" parent="." unique_id=381514007 instance=ExtResource("1_ur1xi")]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 67.0
+offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowButton" parent="." unique_id=1488566614 instance=ExtResource("2_0ntff")]
+offset_left = -1.0
+offset_top = 67.0
+offset_right = 67.0
+offset_bottom = 135.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TerminalButton" parent="." unique_id=1072181524 instance=ExtResource("3_qcuxu")]
+offset_left = -1.0
+offset_top = 135.0
+offset_right = 67.0
+offset_bottom = 203.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapButton" parent="." unique_id=495647002 instance=ExtResource("4_viudq")]
+offset_left = -1.0
+offset_top = 203.0
+offset_right = 67.0
+offset_bottom = 271.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SceneControl" type="Control" parent="." unique_id=1605316812]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_gl3sd")
+
+[node name="Terminal" parent="SceneControl" unique_id=1136889335 instance=ExtResource("6_igvu5")]
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = -195.0
+offset_right = 64.0
+offset_bottom = -195.0
+
+[node name="Radar" parent="SceneControl" unique_id=1563457660 instance=ExtResource("7_6rj5s")]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = -193.0
+offset_right = 66.0
+offset_bottom = -193.0
+
+[node name="Window" parent="SceneControl" unique_id=1080394826 instance=ExtResource("9_senfy")]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = -193.0
+offset_right = 66.0
+offset_bottom = -193.0
+
+[node name="Mapa" parent="SceneControl" unique_id=1768527447 instance=ExtResource("10_1wudd")]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_top = -194.0
+offset_right = 65.0
+offset_bottom = -194.0
+
+[connection signal="pressed" from="RadarButton" to="SceneControl" method="_on_radar_button_pressed"]
+[connection signal="pressed" from="WindowButton" to="SceneControl" method="_on_window_button_pressed"]
+[connection signal="pressed" from="TerminalButton" to="SceneControl" method="_on_terminal_button_pressed"]
+[connection signal="pressed" from="MapButton" to="SceneControl" method="_on_map_button_pressed"]

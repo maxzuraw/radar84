@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dkprdvm31w38h" path="res://terminal/terminal_background.tscn" id="1_l3hco"]
 [ext_resource type="Script" uid="uid://bm8x2idapixan" path="res://terminal/Terminal.gd" id="1_sd0vt"]
 [ext_resource type="FontFile" uid="uid://d4h5fbs8m5yfo" path="res://fonty/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_cgvah"]
+[ext_resource type="Script" uid="uid://bjeeefo1snf0m" path="res://terminal/TerminalSystem.gd" id="2_rke4j"]
 [ext_resource type="AudioStream" uid="uid://cgf7b1erq37xt" path="res://dzwieki/klawiatura/keyboard-pressed.ogg" id="3_osw5p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgvah"]
@@ -18,6 +19,9 @@ border_color = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_sd0vt")
+
+[node name="TerminalSystem" type="Node2D" parent="." unique_id=1625446752]
+script = ExtResource("2_rke4j")
 
 [node name="TerminalBackground" parent="." unique_id=1113399584 instance=ExtResource("1_l3hco")]
 position = Vector2(401, 326)
@@ -62,3 +66,5 @@ caret_blink_interval = 0.5
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/HBoxContainer" unique_id=764304413]
 stream = ExtResource("3_osw5p")
 max_polyphony = 4
+
+[connection signal="clear_screen" from="TerminalSystem" to="." method="_on_terminal_system_clear_screen"]
