@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://da0xv2ex863fp"]
 
 [ext_resource type="Texture2D" uid="uid://dcjbanlpod82p" path="res://grafiki/przyciski/radar-button.png" id="1_otnn5"]
+[ext_resource type="Script" uid="uid://b7uqi2tre4lvr" path="res://przyciski/radarButton.gd" id="2_4bjjr"]
+[ext_resource type="AudioStream" uid="uid://ce6khupt3tbtb" path="res://dzwieki/przyciski/machine-click.ogg" id="3_4bjjr"]
 
 [node name="RadarButton" type="Button" unique_id=381514007]
 tooltip_text = "Radar"
 icon = ExtResource("1_otnn5")
+script = ExtResource("2_4bjjr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2069512698]
+stream = ExtResource("3_4bjjr")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

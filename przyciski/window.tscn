@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://dygbw4r2lda4"]
 
 [ext_resource type="Texture2D" uid="uid://34nmxqi2ekoe" path="res://grafiki/przyciski/window-button.png" id="1_v366b"]
+[ext_resource type="AudioStream" uid="uid://ce6khupt3tbtb" path="res://dzwieki/przyciski/machine-click.ogg" id="2_7qjdw"]
+[ext_resource type="Script" uid="uid://b7juij21sfk74" path="res://przyciski/windowButton.gd" id="2_wadcm"]
 
 [node name="WindowButton" type="Button" unique_id=1488566614]
 tooltip_text = "Window"
 icon = ExtResource("1_v366b")
+script = ExtResource("2_wadcm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=270197646]
+stream = ExtResource("2_7qjdw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

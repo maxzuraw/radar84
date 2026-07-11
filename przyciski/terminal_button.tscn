@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://bbo2t6udxltnn"]
 
 [ext_resource type="Texture2D" uid="uid://dcqphl7yc63l4" path="res://grafiki/przyciski/terminal-button.png" id="1_5qynj"]
+[ext_resource type="AudioStream" uid="uid://ce6khupt3tbtb" path="res://dzwieki/przyciski/machine-click.ogg" id="2_rxo7j"]
+[ext_resource type="Script" uid="uid://bcdlgc0jy104b" path="res://przyciski/terminalButton.gd" id="2_ubu3w"]
 
 [node name="TerminalButton" type="Button" unique_id=1072181524]
 tooltip_text = "Terminal"
 icon = ExtResource("1_5qynj")
+script = ExtResource("2_ubu3w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1865330734]
+stream = ExtResource("2_rxo7j")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
