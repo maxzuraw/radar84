@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo246ejamfj7y" path="res://grafiki/radar/radar-background.png" id="1_0ebdg"]
 [ext_resource type="Script" uid="uid://bu0bdbp6cajga" path="res://radar/Radar.gd" id="1_l1c4d"]
+[ext_resource type="FontFile" uid="uid://d4h5fbs8m5yfo" path="res://fonty/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="3_sj6gg"]
 
 [node name="Radar" type="Control" unique_id=1563457660]
 layout_mode = 3
@@ -19,3 +20,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("1_l1c4d")
+sweep_period = 4.5
+blip_fade_time = 3.0
+blip_label_font = ExtResource("3_sj6gg")
